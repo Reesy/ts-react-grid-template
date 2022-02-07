@@ -2,8 +2,11 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders grid', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const gridComponent = screen.getByText(/a/i);
+  expect(gridComponent).toBeInTheDocument();
 });
+
+
+// I want a test to see if the grid component is present in the app component.
