@@ -9,11 +9,13 @@ const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 export default class BoundedLayout extends React.Component<any, any> {
 
+    private rowCount: number = 12;
+    
     constructor(props: any) {
         super(props);
         this.state = {
             currentBreakpoint: "lg",
-            compactType: "horizontal",
+            compactType: "vertical",
             mounted: false,
             layouts: { lg: this.generateLayout() }
         };
@@ -31,7 +33,14 @@ export default class BoundedLayout extends React.Component<any, any> {
         this.setState({ mounted: true });
     }
 
+    // componentDidUpdate(prevProps: any, prevState: any) {
+    //     if (!_.isEqual(prevState.layouts, this.state.layouts)) {
+    //         this.props.onLayoutChange(this.state.layouts);
+    //     }
+    // }
+
     generateDOM(): any {
+        console.log('Generate DOM called');
         return _.map(this.state.layouts.lg, function (l, i) {
             return (
                 <div className="imageParent" key={i}>
@@ -45,9 +54,13 @@ export default class BoundedLayout extends React.Component<any, any> {
         this.setState({
             currentBreakpoint: breakpoint
         });
+
+        this.rowCount = this.props.cols[breakpoint];
+        this.generateLayout(this.props.cols[breakpoint]);
     };
 
     onLayoutChange: any = (layout: any, layouts: any) => {
+        console.log("On layout change called");
         this.props.onLayoutChange(layout, layouts);
     };
 
@@ -61,28 +74,28 @@ export default class BoundedLayout extends React.Component<any, any> {
     onDrop: (layout: Layout, item: any, e: Event) => void = (elemParams) => {
         alert(`Element parameters: ${JSON.stringify(elemParams)}`);
     };
-    //create a 2d array
-    generateLayout = () => {
-        console.log('state', this);
 
 
-        //How do i access the class state here?
-
-
-
-        console.log('inside state', this.props);
+    generateLayout = (cols?: number) => {
+        // console.log('GenerateLayout called');
+        // console.log(this);
+        console.log("State: ", this.state);
+        console.log("RowCount: ", this.rowCount);
+        console.log("Cols: ", cols);
         let currentY = 0;
         let currentX = 0;
-        let itemWidth = 2;   //In React-grid-layout grid units. 
-        let itemHeight = 10; //In React-grid-layout grid units.
-        let layout: any = _.map(_.range(0, 20), function (item, i) {
+        let itemWidth = 1;   //In React-grid-layout grid units. 
+        let itemHeight = 3; //In React-grid-layout grid units.
+        let rows = this.rowCount // this.rowCount;
+    
+        let layout: any = _.map(_.range(0, 50), function (item, i) {
             if (i !== 0) {
-                currentX += 2
+                currentX += itemWidth
             };
 
-            if (currentX >= 12) {
+            if (currentX >= rows) {
                 currentX = 0;
-                currentY += 10;
+                currentY += itemHeight;
             };
 
             return {
@@ -95,11 +108,7 @@ export default class BoundedLayout extends React.Component<any, any> {
             };
 
         });
-        // if(typeof(this.state) === 'undefined')
-        // {
-        // console.log('state', this.state);
-
-        console.log('layout', layout);
+        // console.log('layout: ', (layout));
         return layout
 
     }
