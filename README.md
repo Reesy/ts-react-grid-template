@@ -1,28 +1,28 @@
+# Description
 
-# WORK IN PROGRESS
+This project is a simple example of using react-grid-layout, It renders a grid of items on the page. 
 
 
-Status: 
+## Current progress
 
 - [x] grid example 
   - [x] moves with breakpoints
-  - [ ] correct layout for each size
+  - [x] correct layout for each size
 - [x] Jenkins support
-- [ ] Docker support
-- [ ] Carousel example
+- [ ] Docker support  
 
-# Description
-
-This project is a simple example of using react-grid-layout. It is a simple grid of images that can be resized and moved.
 
 ## Jenkins CI/CD support
-It has Jenkins support, If you have a Jenkins server, you can use the Jenkins github plugin to set up a job. It's much easier through blue-ocean. You can create a new pipeline, point it at your github repository, and it will automatically build your project.
+It has Jenkins support, If you have a Jenkins server you can use the Jenkins github plugin to set up a job. It's much easier through blue-ocean. You can create a new pipeline, point it at your github repository and it will automatically build your project.
 
-# Getting Started with Create React App
+<br/>
+<br/>
+<br/>
+
+-------
+## Available Scripts
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
 
 In the project directory, you can run:
 

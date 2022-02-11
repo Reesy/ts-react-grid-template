@@ -1,16 +1,13 @@
 import React from 'react';
 import './App.css';
-// import Grid from "./Grid";
-// import Carousel from './Carousel';
-import BoundedLayout from './BoundedLayout';
+import Grid from "./Grid";
+
 
 function App() {
   return (
     <div className="App">
-        {/* <Grid/> */}
-        {/* <Carousel/> */}
-        <BoundedLayout/>
-        a
+        Grid template example
+        <Grid/>
     </div>
   );
 }

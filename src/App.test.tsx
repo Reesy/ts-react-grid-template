@@ -4,7 +4,7 @@ import App from './App';
 
 test('renders grid', () => {
   render(<App />);
-  const gridComponent = screen.getByText(/a/i);
+  const gridComponent = screen.getByText(/Grid template example/i);
   expect(gridComponent).toBeInTheDocument();
 });
 
