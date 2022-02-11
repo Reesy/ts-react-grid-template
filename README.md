@@ -1,3 +1,16 @@
+
+# WORK IN PROGRESS
+
+
+Status: 
+
+- [x] grid example 
+  - [x] moves with breakpoints
+  - [ ] correct layout for each size
+- [x] Jenkins support
+- [ ] Docker support
+- [ ] Carousel example
+
 # Description
 
 This project is a simple example of using react-grid-layout. It is a simple grid of images that can be resized and moved.
