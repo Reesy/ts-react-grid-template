@@ -99,9 +99,11 @@ export default class Grid extends React.Component<Props, State>
 
         for (let element = 1; element <= _elementCount; element++) 
         {
+            let colour = '#' + Math.floor(Math.random() * 16777215).toString(16);
+
             let elementDOM: JSX.Element = 
-            <div className="imageParent" key={element}>
-                <img className="image" src="https://xl.movieposterdb.com/13_06/2013/2194499/xl_2194499_c0435606.jpg?v=2021-10-22%2017:59:47" alt="About Time" />   {/* It's 'about time' I finished this project. */}
+            <div className="imageParent" key={element} style={{backgroundColor: colour}}>
+                
             </div>
             elements.push(elementDOM);
         }
